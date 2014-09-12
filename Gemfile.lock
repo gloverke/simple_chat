@@ -155,5 +155,6 @@ DEPENDENCIES
   capybara
   guard
   guard-rspec
+  rspec
   rspec-rails
   simple_chat!

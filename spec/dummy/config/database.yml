@@ -5,11 +5,11 @@
 #   gem 'sqlite3'
 #
 default: &default
- adapter: mysql2
+  adapter: mysql2
   encoding: utf8
   pool: 5
   username: chat
-  password:chat
+  password: chat
   socket: /tmp/mysql.sock
 
 development:
