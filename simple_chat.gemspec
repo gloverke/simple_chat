@@ -19,10 +19,15 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 4.1.5"
 
   s.add_dependency "mysql2"
+  s.add_dependency "redis"
+  s.add_dependency "gon"
+  s.add_dependency "jquery-rails"
+  s.add_dependency "jquery-ui-rails"
   s.add_development_dependency "rspec"
   s.add_development_dependency "rspec-rails"
+  s.add_development_dependency 'factory_girl_rails'
   s.add_development_dependency "capybara"
   s.add_development_dependency "guard"
   s.add_development_dependency "guard-rspec"
-
+  s.add_development_dependency "mock_redis"
 end

@@ -12,3 +12,9 @@ gemspec
 
 # To use debugger
 # gem 'debugger'
+
+gem "puma"
+gem "gon"
+gem "redis"
+gem "jquery-rails"
+gem "jquery-ui-rails"

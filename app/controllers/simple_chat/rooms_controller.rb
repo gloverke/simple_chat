@@ -3,14 +3,18 @@ require_dependency "simple_chat/application_controller"
 module SimpleChat
   class RoomsController < ApplicationController
     before_action :set_room, only: [:show, :edit, :update, :destroy]
-
     # GET /rooms
     def index
-      @rooms = Room.all
+      redirect_to room_path(0)
     end
 
     # GET /rooms/1
     def show
+      gon.room_id = params[:id] ? params[:id] : 0
+      gon.events_path = streaming_events_path(gon.room_id)
+      gon.chat_url = messages_send_message_path
+      @rooms = Room.all
+
     end
 
     # GET /rooms/new
@@ -49,14 +53,20 @@ module SimpleChat
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_room
-        @room = Room.find(params[:id])
-      end
 
-      # Only allow a trusted parameter "white list" through.
-      def room_params
-        params.require(:room).permit(:name, :user_id, :is_public)
+    # Use callbacks to share common setup or constraints between actions.
+    def set_room
+
+      unless params[:id] == '0'
+        @room = Room.find(params[:id])
+      else
+        @room = Room.new(id: 0, name: "Lobby")
       end
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def room_params
+      params.require(:room).permit(:name, :user_id, :is_public)
+    end
   end
 end

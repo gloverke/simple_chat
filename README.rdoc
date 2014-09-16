@@ -1,3 +1,5 @@
 = SimpleChat
 
 This project rocks and uses MIT-LICENSE.
+
+	bundle exec puma -p 3000 -S ~/puma -C config/puma.rb
