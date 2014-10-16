@@ -17,6 +17,7 @@
 
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 
+
 RSpec.configure do |config|
 
 # rspec-expectations config goes here. You can use an alternate
@@ -40,8 +41,8 @@ RSpec.configure do |config|
   # a real object. This is generally recommended, and will default to
   # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
+   
   end
-
 
   # config.include Module.new {
   # def self.include(base)
@@ -50,6 +51,8 @@ RSpec.configure do |config|
   # }
   #
   config.include SimpleChat::Engine.routes.url_helpers
+
+ 
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.

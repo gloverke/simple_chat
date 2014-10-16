@@ -1,5 +1,7 @@
 # config/puma.rb
-threads 5,25
+#threads 5,25
+#workers 10
+threads 5,10
 workers 10
 preload_app!
 # worker_timeout 60

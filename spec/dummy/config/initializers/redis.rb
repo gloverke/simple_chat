@@ -3,8 +3,9 @@ $redis = Redis.new host: ENV["REDIS_HOST"], port: ENV["REDIS_PORT"]
 
 heartbeat_thread = Thread.new do
   while true
-    $redis.publish("heartbeat","thump")
-    sleep 30.seconds
+    puts "Heartbeat: ACK"
+    $redis.publish("heartbeat","ACK")
+    sleep 10.seconds
   end
 end
 
