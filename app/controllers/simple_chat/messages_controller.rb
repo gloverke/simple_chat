@@ -5,42 +5,49 @@ module SimpleChat
   class MessagesController < ApplicationController
     layout false
     include ActionController::Live
+
     def send_message
-      logger.info "############# SEND_MESSGE"
       response.headers["Content-Type"] = "text/javascript"
-      @message = { name: params[:name], content: params[:content], font: params[:font]  }
-      logger.info "publishing to room: " + "messages_" + params[:room_id].to_s
-      $redis.publish("#{"messages_" + params[:room_id].to_s }.chat", @message.to_json)
+      @message = {name: params[:name], content: params[:content], font: params[:font]}
+      # $redis.publish("#{"messages_" + params[:room_id].to_s }.chat", @message.to_json)
+      logger.info "MessagesController: Sending Event"
+      SimpleChat::SSESubscriber.send_event(:chat, @message.to_json)
+      logger.info "MessagesController: Sending Event ---DONE---"
     end
 
     def events
-
-      redis = Redis.new
-
-      logger.info "subscribing to: heartbeat #{'messages_' + params[:room_id].to_s }.*"
+      response.headers["Cache-Control"] = "no-cache"
       response.headers["Content-Type"] = "text/event-stream"
-
-      redis.psubscribe(["heartbeat","#{'messages_' + params[:room_id].to_s }.*"]) do |on|
-        on.pmessage do |pattern, event, data|
-          logger.info  "pattern: " + pattern + ' event: ' + event + '  data: ' + data;
-          if event.eql? "heartbeat"
-            logger.info 'Received Heartbeat.  Testing Channel'
-            response.stream.write("event: heartbeat\n")
-          else
-            logger.info 'writing to stream'
-            response.stream.write("event: #{event}\n")
-            response.stream.write("data: #{data}\n\n")
-          end
-        end
+      queue = Queue.new
+      reference = SimpleChat::SSESubscriber.subscribe queue
+      while  event = queue.pop do
+        event,data = event
+        response.stream.write("event: #{event}\ndata: #{data}\n\n")
       end
     rescue IOError
-      logger.info "Stream closed"
-      stream_error = true;
-    ensure
-      logger.info "Events action is quitting redis and closing stream!"
-      redis.quit
+      SimpleChat::SSESubscriber.unsubscribe reference
       response.stream.close
-      end
+    end
+
+    #   redis = Redis.new
+    #   response.headers["Content-Type"] = "text/event-stream"
+    #
+    #   redis.psubscribe(["heartbeat","#{'messages_' + params[:room_id].to_s }.*"]) do |on|
+    #     on.pmessage do |pattern, event, data|
+    #       if event.eql? "heartbeat"
+    #         response.stream.write("event: heartbeat\n")
+    #       else
+    #         response.stream.write("event: #{event}\n")
+    #         response.stream.write("data: #{data}\n\n")
+    #       end
+    #     end
+    #   end
+    # rescue IOError
+    #   stream_error = true;
+    # ensure
+    #   redis.quit
+    #   response.stream.close
+    #   end
   end
 
   private

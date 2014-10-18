@@ -17,19 +17,19 @@ module SimpleChat
       # expect(page).to have_css '#chat-output'
     # end
 #     
-    it 'sends a message and sees the chat', :js => true do
-      add_mock_redis()
-      visit routes.rooms_path      
-      within('#input-panel') do
-        fill_in 'chat', :with => 'Hello'        
-      end
-      
-      print page.html
-      click_button 'send'
-      # (find('#sidebar').find('h1')).to have_content('Something')
-      # print page.html
-      expect(find("#chat-output")).to have_content('Hello')
-    end
+#     it 'sends a message and sees the chat', :js => true do
+#       add_mock_redis()
+#       visit routes.rooms_path
+#       within('#input-panel') do
+#         fill_in 'chat', :with => 'Hello'
+#       end
+#
+#       print page.html
+#       click_button 'send'
+#       # (find('#sidebar').find('h1')).to have_content('Something')
+#       # print page.html
+#       expect(find("#chat-output")).to have_content('Hello')
+#     end
     
     #cannot test any server side ven
     
