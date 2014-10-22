@@ -23,6 +23,9 @@ Gem::Specification.new do |s|
   s.add_dependency "gon"
   s.add_dependency "jquery-rails"
   s.add_dependency "jquery-ui-rails"
+  s.add_dependency  "bootstrap-sass"
+  s.add_dependency  "sass-rails"
+  s.add_dependency  "autoprefixer-rails"
   s.add_development_dependency "rspec"
   s.add_development_dependency "rspec-rails"
   s.add_development_dependency 'factory_girl_rails'

@@ -2,33 +2,30 @@
 // All this logic will automatically be available in application.js.
 
 var ready = function () {
-    $('#change-name').click(function (e) {
-//        e.stopPropagation();
-//        e.preventDefault();
-        var value = $('#change-name-form input').val();
-//        console.log('value: ' + value);
-        $.ajax({
-            type: 'POST',
-            url: "/simple_chat/users/change_name",
-            data: {name: value},
-            dataType: "script",
-            complete: function (data) {
-                eval(data.responseText);
-            }});
-//          complete: function(jqXHR) {
-//              if(jqXHR.readyState === 4) {
-//              }
-//          }
-//      });
-//        console.log('val: ' + value);
-//        var result = jQuery.post("/simple_chat/users/change_name",{name: value},function (data) {
-//            console.log('response: ' + data);
-//            eval(data);
-//        });
-//        result.done(function(){
-//            console.log('jqXHR is done')
-//        } );
-        $('#change-name-form input').val('');
+    $('#current-user-row').click(function (e) {
+        $('#change-name-row').removeClass('hide');
+        $('#current-user-row').hide();
+        $('#change-name-row').show();
+        $('#change-name-row input').focus();
+
+    });
+    $('#new-name').bind("keypress", function(event) {
+        if(event.which == 13) {
+            event.preventDefault();
+            var value = $('#change-name-form input').val();
+            $.ajax({
+                type: 'POST',
+                url: "/simple_chat/users/change_name",
+                data: {name: value},
+                dataType: "script",
+                complete: function (data) {
+                    eval(data.responseText);
+                }});
+            $('#change-name-form input').val('');
+            $('#change-name-row').hide();
+            $('#current-user-row').show();
+
+        }
     });
 };
 $(document).ready(ready)

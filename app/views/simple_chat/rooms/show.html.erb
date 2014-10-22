@@ -1,28 +1,49 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @room.name %>
-</p>
+<div class="container">
+    <p id="notice"><%= notice %></p>
+    <div class="row">
+        <h1>Room Details</h1>
 
-<p>
-  <strong>User:</strong>
-  <%= @room.user_id %>
-</p>
+        <span>
+            <strong>Name:</strong>
+            <%= @room.name %>
+        </span>
 
-<p>
-  <strong>Is public:</strong>
-  <%= @room.is_public %>
-</p>
+        <span>
+            <strong>User:</strong>
+            <%= @room.user_id %>
+            </span>
+        <span>
+            <!--<strong>Is public:</strong>-->
+            <!--<%= @room.is_public %>-->
+            <!--</span>-->
+    </div>
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-4">
+            <%= render 'simple_chat/users/user_list' %>
+        </div>
+        <div class="col-md-8">
+            <h2>Chat</h2>
+            <div id="chat-output">
+                <div></div>
+            </div>
+            <div id="input-panel">
+                <input id="chat-input" type="text" name="chat">	<button id="send-chat">send</button>
+            </div>
 
+        </div>
+        <!--<div class="col-md-4">-->
+            <!--<h2>Room List</h2>-->
+        <!--</div>-->
+    </div>
 
-
-<%= render 'simple_chat/users/user_list' %>
-
-<h3></h3>
-<div id="chat-output">
-	<div></div>
+    <hr>
 </div>
-<div id="input-panel">
- <input id="chat-input" type="text" name="chat">	<button id="send-chat">send</button>
-</div>
+
+
+
+
+
+
+
