@@ -1,0 +1,1 @@
+SimpleChat::Engine.load_seed

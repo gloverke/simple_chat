@@ -12,9 +12,8 @@ var ready = function() {
 		$('#chat-output').append("<div>" + message.name + ':' + message.content + "</div>");
 	});
 	$('#send-chat').click(function(e) {
-		console.log(gon.chat_url + " content: " + $("#chat-input").val());
 		$.post(gon.chat_url, {
-			name : "XXXX",
+			name : $('#current-user').text(),
 			content : $("#chat-input").val(),
 			room_id : gon.room_id
 		});
@@ -22,7 +21,7 @@ var ready = function() {
 	$('#chat-input').keypress(function(e) {
 		if(e.which == 13) {
 			$.post(gon.chat_url, {
-				name : "XXXX",
+				name : $('#current-user').text(),
 				content : $("#chat-input").val(),
 				room_id : gon.room_id
 			});
