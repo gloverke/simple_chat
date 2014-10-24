@@ -7,9 +7,10 @@ I've repurposed it to provide code samples to interested parties.
 
 ## Running the engine solo
 
+```
  cd specs/dummy
  bundle exec puma -p 3000 -S ~/puma -C config/puma.rb
-
+```
 Then open http://localhost:3000/simple_chat/rooms
 
 
