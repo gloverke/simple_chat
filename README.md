@@ -4,7 +4,7 @@ This a sample rails4 engine.  It started as a place to experiment with Server Si
 
 I've repurposed it to provide code samples to interested parties.
 
-#Running the engine solo
+# Running the engine solo
 
  cd specs/dummy
  bundle exec puma -p 3000 -S ~/puma -C config/puma.rb
@@ -18,7 +18,7 @@ Then open http://localhost:3000/simple_chat/rooms
 
 You need to have redis installed
 
-###Add Gems
+### Add Gems
 
 Add the following gems to your gem file. I'm using puma, but you may be using something else.  Since
 simple_chat uses ServerSideEvents your chosen server needs to be multi-threaded.
@@ -32,13 +32,13 @@ simple_chat uses ServerSideEvents your chosen server needs to be multi-threaded.
  gem 'bootstrap-sass'
  gem 'autoprefixer-rails'
 
-###Update the routes file
+### Update the routes file
 
 The mounts all of the simple chat routes into your application.
 
  mount SimpleChat::Engine, at: "/simple_chat"
 
-###Update the database
+### Update the database
 
 Install the migrations, and run them.  The SCOPE tag will run only the migrations associated with
 the engine specificed.
@@ -55,7 +55,7 @@ Run the seeds with the same scope tags
 
  rake SCOPE=simple_chat db:seed
 
-###Setting up redis
+### Setting up redis
 
 This sets up the redis connection and creates a heartbeat thread.  The heartbeat should not be necessary,
 but due to the bug mentioned above it is.  Every 5 seconds is sends a message to the heartbeat queue. Every
@@ -98,4 +98,3 @@ In case you don't have a puma.rb
   end
 
  end
-
