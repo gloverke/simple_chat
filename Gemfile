@@ -18,6 +18,7 @@ gem "gon"
 gem "redis"
 gem "jquery-rails"
 gem "jquery-ui-rails"
+gem 'handlebars_assets'
 gem 'bootstrap-sass'
 gem 'sass-rails'
 gem 'autoprefixer-rails'

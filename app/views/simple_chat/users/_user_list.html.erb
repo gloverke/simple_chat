@@ -13,6 +13,11 @@
 </div>
 <ul id="user-list" class="list-group">
     <% @users.each do |user|%>
-    <li class="list-group-item"><%= user.name%></li>
+    <li class="list-group-item" data-user-id="<%=user.id%>"><%= user.name%></li>
     <%end%>
 </ul>
+
+
+<script id="entry-template" type="text/x-handlebars-template">
+    <li class="list-group-item" data-user-id="{{user_id}}">{{</li>
+</script>

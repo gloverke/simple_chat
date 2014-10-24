@@ -5,10 +5,9 @@ module SimpleChat
     # routes { SimpleChat::Engine.routes }
 
     # routes { SimpleChat::Engine.routes }
-    current_user_params = {name: 'John Doe'}
 
     before(:all) do
-      assign(:current_user, current_user_params)
+      assign(:current_user, build(:user, name: 'John Doe'))
       assign(:users, build_list(:user, 3))
       assign(:room, build(:room))
     end

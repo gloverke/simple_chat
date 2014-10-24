@@ -17,6 +17,7 @@ module SimpleChat
       current_user.update_attribute(:room_id, gon.room_id)
       @room = Room.find(gon.room_id)
       @users = User.where(room_id: gon.room_id)
+      $redis.publish("messages_#{current_user.room_id.to_s }.user_entered", @current_user.to_json)
     end
     #
     # # GET /rooms/new

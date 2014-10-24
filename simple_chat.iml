@@ -46,11 +46,13 @@
     <orderEntry type="library" scope="PROVIDED" name="gon (v5.2.0, RVM: ruby-2.1.2 [chat]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard (v2.6.1, RVM: ruby-2.1.2 [chat]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-rspec (v4.3.1, RVM: ruby-2.1.2 [chat]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="handlebars_assets (v0.18, RVM: ruby-2.1.2 [chat]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hike (v1.2.3, RVM: ruby-2.1.2 [chat]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hitimes (v1.2.2, RVM: ruby-2.1.2 [chat]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v0.6.11, RVM: ruby-2.1.2 [chat]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jquery-rails (v3.1.2, RVM: ruby-2.1.2 [chat]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jquery-ui-rails (v5.0.0, RVM: ruby-2.1.2 [chat]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jslint_on_rails (v1.1.1, RVM: ruby-2.1.2 [chat]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="launchy (v2.4.2, RVM: ruby-2.1.2 [chat]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="listen (v2.7.9, RVM: ruby-2.1.2 [chat]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="lumberjack (v1.0.9, RVM: ruby-2.1.2 [chat]) [gem]" level="application" />

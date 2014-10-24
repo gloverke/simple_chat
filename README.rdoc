@@ -1,5 +1,16 @@
 = SimpleChat
 
-This project rocks and uses MIT-LICENSE.
+This a sample rails4 engine.  It started as a place to experiment with Server Side Events. Specifically to
+ have a sandbox to explore the bug identified here https://github.com/rails/rails/issues/10989
 
+I've repurposed it to provide code samples to interested parties.
+
+#Running the engine
+
+```
+    cd specs/dummy
 	bundle exec puma -p 3000 -S ~/puma -C config/puma.rb
+```
+Then open http://localhost:3000/simple_chat/rooms
+
+

@@ -7,7 +7,7 @@ module SimpleChat
     include ActionController::Live
     def send_message
       response.headers["Content-Type"] = "text/javascript"
-      @message = { name: params[:name], content: params[:content], font: params[:font]  }
+      @message = { name: current_user.name, content: params[:content], font: params[:font] , user_id: current_user.id }
       $redis.publish("#{"messages_" + params[:room_id].to_s }.chat", @message.to_json)
     end
 

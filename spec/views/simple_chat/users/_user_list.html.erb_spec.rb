@@ -16,7 +16,7 @@ RSpec.describe "simple_chat/users/_user_list.html.erb", :type => :view do
     end
     it 'has a change user name form' do
       render
-      expect(rendered).to have_selector 'form', text: "Change Name"
+      expect(rendered).to have_selector 'form #new-name'
     end
   end
 
