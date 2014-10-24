@@ -1,7 +1,6 @@
 = SimpleChat
 
-This a sample rails4 engine.  It started as a place to experiment with Server Side Events. Specifically to
- have a sandbox to explore the bug identified here https://github.com/rails/rails/issues/10989
+This a sample rails4 engine.  It started as a place to experiment with Server Side Events. Specifically to have a sandbox to explore the bug identified here https://github.com/rails/rails/issues/10989
 
 I've repurposed it to provide code samples to interested parties.
 
