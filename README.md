@@ -1,10 +1,11 @@
-= SimpleChat
+SimpleChat
+============
 
 This a sample rails4 engine.  It started as a place to experiment with Server Side Events. Specifically to have a sandbox to explore the bug identified here https://github.com/rails/rails/issues/10989
 
 I've repurposed it to provide code samples to interested parties.
 
-# Running the engine solo
+## Running the engine solo
 
  cd specs/dummy
  bundle exec puma -p 3000 -S ~/puma -C config/puma.rb
@@ -12,7 +13,7 @@ I've repurposed it to provide code samples to interested parties.
 Then open http://localhost:3000/simple_chat/rooms
 
 
-# Mounting the engine into an app
+## Mounting the engine into an app
 
 ### Requirements
 
@@ -22,7 +23,7 @@ You need to have redis installed
 
 Add the following gems to your gem file. I'm using puma, but you may be using something else.  Since
 simple_chat uses ServerSideEvents your chosen server needs to be multi-threaded.
-
+```
  gem 'simple_chat', :git => 'https://github.com/gloverke/simple_chat.git'
  gem 'puma'
  gem 'gon'
@@ -31,30 +32,30 @@ simple_chat uses ServerSideEvents your chosen server needs to be multi-threaded.
  gem 'handlebars_assets'
  gem 'bootstrap-sass'
  gem 'autoprefixer-rails'
-
+```
 ### Update the routes file
 
 The mounts all of the simple chat routes into your application.
-
+```
  mount SimpleChat::Engine, at: "/simple_chat"
-
+```
 ### Update the database
 
 Install the migrations, and run them.  The SCOPE tag will run only the migrations associated with
 the engine specificed.
-
+```
  rake simple_chat:install:migrations
  rake SCOPE=simple_chat db:migrate
-
+```
 Load the simple_chats seeds into your seeds.rb file
-
+```
  #seeds.rb
  SimpleChat::Engine.load_seed
-
+```
 Run the seeds with the same scope tags
-
+```
  rake SCOPE=simple_chat db:seed
-
+```
 ### Setting up redis
 
 This sets up the redis connection and creates a heartbeat thread.  The heartbeat should not be necessary,
@@ -62,7 +63,7 @@ but due to the bug mentioned above it is.  Every 5 seconds is sends a message to
 stream subscribes to it.  If the browser has closed, or navigated away from the site the heartbeat will
 cause the stream to error, close, and release the thread.  If you don't do this you will slowly lose
 all of your threads until the site is unusable
-
+```
  #initializers/redis.rb
  $redis = Redis.new host: ENV["REDIS_HOST"], port: ENV["REDIS_PORT"]
 
@@ -78,14 +79,14 @@ all of your threads until the site is unusable
   heartbeat_thread.kill
   $redis.quit
  end
-
+```
 ### Run it
-
+```
  bundle exec puma -p 3000 -S ~/puma -C config/puma.rb
-
+```
 
 In case you don't have a puma.rb
-
+```
  #config/puma.rb
  threads 5,10
  workers 10
@@ -98,3 +99,4 @@ In case you don't have a puma.rb
   end
 
  end
+```
