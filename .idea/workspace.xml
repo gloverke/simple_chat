@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="68ed4c6c-ddbc-4895-80c5-35b70f66d257" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/simple_chat/messages_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/simple_chat/messages_controller.rb" />
-    </list>
+    <list default="true" id="68ed4c6c-ddbc-4895-80c5-35b70f66d257" name="Default" comment="" />
     <ignored path="simple_chat.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,8 +38,8 @@
       <file leaf-file-name="messages_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/simple_chat/messages_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.025" vertical-offset="0" max-vertical-offset="893">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.65" vertical-offset="0" max-vertical-offset="893">
+              <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -1043,8 +1041,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/simple_chat/messages_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.025" vertical-offset="0" max-vertical-offset="893">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.65" vertical-offset="0" max-vertical-offset="893">
+          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
           <folding />
         </state>
       </provider>
