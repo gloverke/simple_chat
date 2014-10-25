@@ -5,10 +5,24 @@
   <%= include_gon %>
   <%= stylesheet_link_tag    "simple_chat/application", media: "all" %>
   <%= javascript_include_tag "simple_chat/application" %>
-  <%= javascript_include_tag "simple_chat/handlebars-v2.0.0" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <span class="navbar-brand" style="color:white;" >Simple Chat</span>
+        </div>
+        <div class="">
+            <ul class="nav navbar-nav">
+                <li><a href="https://github.com/gloverke/simple_chat">GitHub</a></li>
+                <li><a href="/">Other Samples</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</div>
 
 <%= yield %>
 
