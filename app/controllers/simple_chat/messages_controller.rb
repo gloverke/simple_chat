@@ -1,4 +1,5 @@
 require_dependency "simple_chat/application_controller"
+require_dependency "redis"
 
 module SimpleChat
   class MessagesController < ApplicationController
@@ -12,10 +13,11 @@ module SimpleChat
 
     def events
 
+      redis = Redis.new host: ENV["REDIS_HOST"], port: ENV["REDIS_PORT"]
 
       response.headers["Content-Type"] = "text/event-stream"
 
-      $redis.psubscribe(["heartbeat","#{'messages_' + params[:room_id].to_s }.*"]) do |on|
+      redis.psubscribe(["heartbeat","#{'messages_' + params[:room_id].to_s }.*"]) do |on|
         on.pmessage do |pattern, event, data|
           if event.eql? "heartbeat"
             response.stream.write("event: heartbeat\n")
