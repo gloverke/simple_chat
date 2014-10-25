@@ -17,7 +17,9 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 
   s.add_dependency "rails", '~> 4.2.0.beta2'
-
+  s.add_dependency "sprockets-rails", '~> 3.0.0.beta1'
+  s.add_dependency 'activesupport','~> 4.2.0.beta2'
+  s.add_dependency 'sass-rails','~>5.0.0.beta1'
   s.add_dependency "mysql2"
   s.add_dependency "redis"
   s.add_dependency "gon"
@@ -25,7 +27,6 @@ Gem::Specification.new do |s|
   s.add_dependency "jquery-ui-rails"
   s.add_dependency  "bootstrap-sass"
   s.add_dependency  "handlebars_assets"
-  s.add_dependency  "sass-rails"
   s.add_dependency  "autoprefixer-rails"
   s.add_development_dependency "rspec"
   s.add_development_dependency "rspec-rails"
