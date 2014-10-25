@@ -1,5 +1,4 @@
 require_dependency "simple_chat/application_controller"
-require_dependency "redis"
 
 module SimpleChat
   class MessagesController < ApplicationController
